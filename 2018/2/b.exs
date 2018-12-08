@@ -1,6 +1,6 @@
 input =
   File.read!("input")
-  |> String.split("\n", trim: true)
+  |> String.split(["\r", "\n"], trim: true)
 
 defmodule B do
   def dist(first, second) do

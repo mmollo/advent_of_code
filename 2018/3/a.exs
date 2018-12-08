@@ -1,6 +1,6 @@
 input =
   File.read!("input")
-  |> String.split("\n", trim: true)
+  |> String.split(["\r", "\n"], trim: true)
 
 defmodule A do
   defp parse(str) do
