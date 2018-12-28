@@ -1,0 +1,7 @@
+NOT b -> a
+c OR d -> b
+e OR f -> c
+44430 -> d
+NOT d -> e
+e OR d -> f
+e AND f -> g
