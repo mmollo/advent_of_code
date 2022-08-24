@@ -2,8 +2,7 @@ const { readFileSync } = require('fs')
 
 
 
-input = readFileSync('./input').toString('ascii').split("\r\n\r\n")
-
+input = readFileSync('./input.txt').toString('ascii').split("\n\n")
 seq = input.shift().split(',').map(x => parseInt(x))
 
 Cell = function(value, row, col, marked = false) {
@@ -58,7 +57,9 @@ Board.prototype.score = function() {
 // Part 1
 function a(input) {
 	boards = new Set(input.map( b => {
-		let data = b.replace(/\r\n/g, ' ').replace(/ +/g, ' ').trim().split(' ').map(x => parseInt(x))
+console.log(b)
+		let data = b.replace(/\n/g, ' ').replace(/ +/g, ' ').trim().split(' ').map(x => parseInt(x))
+		console.log(data)
 		return new Board(data)
 	}))
 	let n, b
@@ -72,6 +73,7 @@ function a(input) {
 			if(b.rows.get(cell.row).every(c => c.marked) || b.cols.get(cell.col).every(c => c.marked)) break seq
 		}
 	}
+	console.log(b.cells)
 	return n * b.score()
 }
 
@@ -79,7 +81,7 @@ function a(input) {
 // Part 2
 function b(input) {
 	boards = new Set(input.map( b => {
-		let data = b.replace(/\r\n/g, ' ').replace(/ +/g, ' ').trim().split(' ').map(x => parseInt(x))
+		let data = b.replace(/\n/g, ' ').replace(/ +/g, ' ').trim().split(' ').map(x => parseInt(x))
 		return new Board(data)
 	}))
 	let n, b
