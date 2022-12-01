@@ -9,4 +9,4 @@ end
 
 p input.max
 
-p input.sort.max(3).sum
+p input.max(3).sum
