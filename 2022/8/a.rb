@@ -26,13 +26,13 @@ def vis?(m, x, y, n)
   edg?(m, x, y) || pat(m, x, y).any? { |s| s.none? { |h| h >= n } }
 end
 
-def a(m)
-  m.each_with_index.map.count { |n, x, y| vis? m, x, y, n }
-end
-
 def sco(a, n)
   s = a.take_while { |h| h < n }.count
   a.size == s ? s : s + 1
+end
+
+def a(m)
+  m.each_with_index.map.count { |n, x, y| vis? m, x, y, n }
 end
 
 def b(m)
